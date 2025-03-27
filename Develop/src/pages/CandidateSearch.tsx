@@ -13,11 +13,11 @@ const CandidateSearch = () => {
     const fetchCandidates = async () => {
       const users = await searchGithub();
       const detailedCandidates = await Promise.all(
-        users.map((user: any) => searchGithubUser(user.login))
+        users.map((user: { login: string }) => searchGithubUser(user.login))
       );
       setCandidates(detailedCandidates);
     };
-    fetchCandidates();
+    void fetchCandidates();
   }, []);
 
   const handleSave = () => {

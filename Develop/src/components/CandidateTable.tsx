@@ -1,9 +1,9 @@
 import { Candidate } from '@/types';
 
-type Props = {
+interface Props {
   candidates: Candidate[];
   onRemove: (login: string) => void;
-};
+}
 
 const CandidateTable = ({ candidates, onRemove }: Props) => {
   return (

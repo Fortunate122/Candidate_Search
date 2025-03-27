@@ -31,8 +31,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:@typescript-eslint/stylistic-type-checked',
-    'plugin:react-refresh/recommended'
+    'plugin:@typescript-eslint/stylistic-type-checked'
+    // ❌ DO NOT include: 'plugin:react-refresh/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -53,7 +53,10 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    
+    // ✅ Manual React Fast Refresh rule
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }]
   },
   settings: {
     react: {
@@ -61,5 +64,3 @@ module.exports = {
     },
   },
 }
-
-

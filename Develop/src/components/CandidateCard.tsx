@@ -1,10 +1,10 @@
 import { Candidate } from '@/types';
 
-type Props = {
+interface Props {
   candidate: Candidate;
   onSave: () => void;
   onSkip: () => void;
-};
+}
 
 const CandidateCard = ({ candidate, onSave, onSkip }: Props) => {
   return (
@@ -18,10 +18,10 @@ const CandidateCard = ({ candidate, onSave, onSkip }: Props) => {
       />
       <h2>{candidate.name}</h2>
       <p><strong>Username:</strong> {candidate.login}</p>
-      <p><strong>Location:</strong> {candidate.location || 'N/A'}</p>
-      <p><strong>Email:</strong> {candidate.email || 'N/A'}</p>
-      <p><strong>Company:</strong> {candidate.company || 'N/A'}</p>
-      <p><strong>Bio:</strong> {candidate.bio || 'N/A'}</p>
+      <p><strong>Location:</strong> {candidate.location ?? 'N/A'}</p>
+      <p><strong>Email:</strong> {candidate.email ?? 'N/A'}</p>
+      <p><strong>Company:</strong> {candidate.company ?? 'N/A'}</p>
+      <p><strong>Bio:</strong> {candidate.bio ?? 'N/A'}</p>
       <p>
         <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
           View GitHub Profile

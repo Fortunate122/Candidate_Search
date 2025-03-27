@@ -13,14 +13,14 @@ const SavedCandidates = () => {
   };
 
   const filtered = savedCandidates.filter(candidate =>
-    candidate.name?.toLowerCase().includes(filter.toLowerCase()) ||
-    candidate.location?.toLowerCase().includes(filter.toLowerCase()) ||
-    candidate.company?.toLowerCase().includes(filter.toLowerCase())
+    (candidate.name ?? '').toLowerCase().includes(filter.toLowerCase()) ||
+    (candidate.location ?? '').toLowerCase().includes(filter.toLowerCase()) ||
+    (candidate.company ?? '').toLowerCase().includes(filter.toLowerCase())
   );
 
   const sorted = [...filtered].sort((a, b) => {
-    const aVal = (a[sortKey] || '').toString().toLowerCase();
-    const bVal = (b[sortKey] || '').toString().toLowerCase();
+    const aVal = (a[sortKey] ?? '').toString().toLowerCase();
+    const bVal = (b[sortKey] ?? '').toString().toLowerCase();
     return aVal.localeCompare(bVal);
   });
 
@@ -38,7 +38,12 @@ const SavedCandidates = () => {
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
             />
-            <select value={sortKey} onChange={(e) => setSortKey(e.target.value as any)}>
+            <select
+              value={sortKey}
+              onChange={(e) =>
+                setSortKey(e.target.value as 'name' | 'location' | 'company')
+              }
+            >
               <option value="name">Name</option>
               <option value="location">Location</option>
               <option value="company">Company</option>
