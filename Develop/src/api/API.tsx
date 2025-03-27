@@ -1,7 +1,7 @@
 import { Candidate } from '@/types';
 
 // 🔍 Temporary Hardcoded Token for Debugging (Remove After Fixing)
-const TEMP_HARDCODED_TOKEN = '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';
+const TEMP_HARDCODED_TOKEN = '';
 
 // 📝 Debug Log to Check if Token is Loaded from .env
 console.log('GitHub Token from .env:', import.meta.env.VITE_GITHUB_TOKEN);
